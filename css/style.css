@@ -213,7 +213,7 @@ body._lock {
   font-size: 15px;
   font-weight: 700;
   text-align: center;
-  border: 3px solid #000;
+  border: 3px solid rgba(0, 0, 0, 0.75);
   text-transform: uppercase;
   border-radius: 5px;
 }
@@ -2246,14 +2246,6 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item.lg-complete .lg-object 
 }
 
 .contacts__body {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
   max-width: 768px;
   margin: 0 auto;
 }
@@ -2262,33 +2254,83 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item.lg-complete .lg-object 
   margin-bottom: 40px;
 }
 
-.contacts__image {
+.contacts__insta {
+  max-width: 768px;
+  margin: 0 auto;
+}
+
+.contacts .instagram_gallery {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.contacts .instagram_gallery a {
+  position: relative;
   -webkit-box-flex: 0;
       -ms-flex: 0 1 25%;
           flex: 0 1 25%;
+  padding: 0px 0px 30% 0px;
+  overflow: hidden;
 }
 
-.contacts__image ._icon-instagram::before {
-  color: #5a2e19;
-  font-size: 50px;
+.contacts .instagram_gallery a::before {
+  content: "";
   position: absolute;
   opacity: 0;
-  z-index: 1;
+  z-index: 10;
   top: 50%;
   left: 50%;
+  width: 50px;
+  height: 50px;
+  display: block;
   -webkit-transform: translate(-50%, -50%);
       -ms-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
-  -webkit-transition: all 0.3s ease 0s;
-  -o-transition: all 0.3s ease 0s;
-  transition: all 0.3s ease 0s;
+  -webkit-transition: opacity 0.5s ease 0s;
+  -o-transition: opacity 0.5s ease 0s;
+  transition: opacity 0.5s ease 0s;
+  background: url("../img/icons/instagram.svg") center no-repeat;
+}
+
+.contacts .instagram_gallery a img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -webkit-transition: -webkit-transform 0.6s ease 0s;
+  transition: -webkit-transform 0.6s ease 0s;
+  -o-transition: transform 0.6s ease 0s;
+  transition: transform 0.6s ease 0s;
+  transition: transform 0.6s ease 0s, -webkit-transform 0.6s ease 0s;
+}
+
+.contacts .instagram_gallery a:nth-child(1) {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 1 50%;
+          flex: 0 1 50%;
+  padding: 0px 0px 43.5% 0px;
+}
+
+.contacts .instagram_gallery a:nth-child(2) {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 1 50%;
+          flex: 0 1 50%;
+  padding: 0px 0px 43.5% 0px;
 }
 
 .social-contacts__link {
   opacity: 0.8;
-  -webkit-transition: all 0.3s ease 0s;
-  -o-transition: all 0.3s ease 0s;
-  transition: all 0.3s ease 0s;
+  -webkit-transition: -webkit-transform 0.3s ease 0s;
+  transition: -webkit-transform 0.3s ease 0s;
+  -o-transition: transform 0.3s ease 0s;
+  transition: transform 0.3s ease 0s;
+  transition: transform 0.3s ease 0s, -webkit-transform 0.3s ease 0s;
   margin: 0px 40px 0px 0px;
 }
 
@@ -2330,21 +2372,6 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item.lg-complete .lg-object 
   -o-transition: opacity 2.3s ease 0.9s;
   transition: opacity 2.3s ease 0.9s;
   opacity: 0.8;
-}
-
-.image-contacts_big {
-  -webkit-box-flex: 1;
-      -ms-flex: 1 0 50%;
-          flex: 1 0 50%;
-}
-
-.image-contacts__item {
-  display: block;
-  padding: 0px 0px 57% 0px;
-}
-
-.image-contacts__item_big {
-  padding: 0px 0px 87% 0px;
 }
 
 @-webkit-keyframes shakey {
@@ -2417,6 +2444,11 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item.lg-complete .lg-object 
   -webkit-transform: scale(0);
       -ms-transform: scale(0);
           transform: scale(0);
+  -webkit-transition: -webkit-transform 1s ease 0.3s;
+  transition: -webkit-transform 1s ease 0.3s;
+  -o-transition: transform 1s ease 0.3s;
+  transition: transform 1s ease 0.3s;
+  transition: transform 1s ease 0.3s, -webkit-transform 1s ease 0.3s;
 }
 
 .achievements__column._active {
@@ -2425,17 +2457,16 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item.lg-complete .lg-object 
   -webkit-transform: scale(1);
       -ms-transform: scale(1);
           transform: scale(1);
-  -webkit-transition: all 1s ease 0.3s;
-  -o-transition: all 1s ease 0.3s;
-  transition: all 1s ease 0.3s;
 }
 
 .achievements__item {
   display: block;
   padding: 0px 0px 70% 0px;
-  -webkit-transition: all 0.3s ease 0s;
-  -o-transition: all 0.3s ease 0s;
-  transition: all 0.3s ease 0s;
+  -webkit-transition: -webkit-transform 0.3s ease 0s;
+  transition: -webkit-transform 0.3s ease 0s;
+  -o-transition: transform 0.3s ease 0s;
+  transition: transform 0.3s ease 0s;
+  transition: transform 0.3s ease 0s, -webkit-transform 0.3s ease 0s;
 }
 
 .about__contacts {
@@ -2478,16 +2509,28 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item.lg-complete .lg-object 
 
 .services__item._active .item-services__column_right {
   right: 0;
-  -webkit-transition: all 1s ease 0s;
-  -o-transition: all 1s ease 0s;
-  transition: all 1s ease 0s;
+  -webkit-transition: right 1s ease 0s;
+  -o-transition: right 1s ease 0s;
+  transition: right 1s ease 0s;
 }
 
 .services__item._active .item-services__column_left {
   left: 0;
-  -webkit-transition: all 1s ease 0s;
-  -o-transition: all 1s ease 0s;
-  transition: all 1s ease 0s;
+  -webkit-transition: left 1s ease 0s;
+  -o-transition: left 1s ease 0s;
+  transition: left 1s ease 0s;
+}
+
+.services__contacts {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .item-services {
@@ -2516,17 +2559,17 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item.lg-complete .lg-object 
 .item-services__column_right {
   position: relative;
   right: -120%;
-  -webkit-transition: all 1s ease 0s;
-  -o-transition: all 1s ease 0s;
-  transition: all 1s ease 0s;
+  -webkit-transition: right 1s ease 0s;
+  -o-transition: right 1s ease 0s;
+  transition: right 1s ease 0s;
 }
 
 .item-services__column_left {
   position: relative;
   left: -120%;
-  -webkit-transition: all 1s ease 0s;
-  -o-transition: all 1s ease 0s;
-  transition: all 1s ease 0s;
+  -webkit-transition: left 1s ease 0s;
+  -o-transition: left 1s ease 0s;
+  transition: left 1s ease 0s;
 }
 
 .item-services__image {
@@ -2535,9 +2578,11 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item.lg-complete .lg-object 
 }
 
 .item-services__image img {
-  -webkit-transition: all 0.5s ease 0s;
-  -o-transition: all 0.5s ease 0s;
-  transition: all 0.5s ease 0s;
+  -webkit-transition: -webkit-transform 0.5s ease 0s;
+  transition: -webkit-transform 0.5s ease 0s;
+  -o-transition: transform 0.5s ease 0s;
+  transition: transform 0.5s ease 0s;
+  transition: transform 0.5s ease 0s, -webkit-transform 0.5s ease 0s;
 }
 
 .item-services__image_top img {
@@ -2611,6 +2656,10 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item.lg-complete .lg-object 
   font-size: 18px;
   font-weight: 700;
   color: #706c64;
+}
+
+.reviews {
+  margin-bottom: 70px;
 }
 
 .reviews_slider-dotts {
@@ -2704,9 +2753,11 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item.lg-complete .lg-object 
   -webkit-transform: scale(0);
       -ms-transform: scale(0);
           transform: scale(0);
-  -webkit-transition: all 1s ease 0s;
-  -o-transition: all 1s ease 0s;
-  transition: all 1s ease 0s;
+  -webkit-transition: -webkit-transform 1s ease 0s;
+  transition: -webkit-transform 1s ease 0s;
+  -o-transition: transform 1s ease 0s;
+  transition: transform 1s ease 0s;
+  transition: transform 1s ease 0s, -webkit-transform 1s ease 0s;
   border-radius: 50%;
 }
 
@@ -2714,9 +2765,11 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item.lg-complete .lg-object 
   -webkit-transform: scale(1);
       -ms-transform: scale(1);
           transform: scale(1);
-  -webkit-transition: all 1.4s ease 0s;
-  -o-transition: all 1.4s ease 0s;
-  transition: all 1.4s ease 0s;
+  -webkit-transition: -webkit-transform 1.4s ease 0s;
+  transition: -webkit-transform 1.4s ease 0s;
+  -o-transition: transform 1.4s ease 0s;
+  transition: transform 1.4s ease 0s;
+  transition: transform 1.4s ease 0s, -webkit-transform 1.4s ease 0s;
   border-radius: 0px;
 }
 
@@ -2733,9 +2786,9 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item.lg-complete .lg-object 
 .about__body p {
   position: relative;
   left: -120%;
-  -webkit-transition: all 0.4s ease 0s;
-  -o-transition: all 0.4s ease 0s;
-  transition: all 0.4s ease 0s;
+  -webkit-transition: left 0.4s ease 0s;
+  -o-transition: left 0.4s ease 0s;
+  transition: left 0.4s ease 0s;
   margin: 0px 0px 20px 0px;
 }
 
@@ -2751,30 +2804,30 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item.lg-complete .lg-object 
 
 .page__text._active p:nth-child(1),
 ._active.about__body p:nth-child(1) {
-  -webkit-transition: all 0.5s ease 0.4s;
-  -o-transition: all 0.5s ease 0.4s;
-  transition: all 0.5s ease 0.4s;
+  -webkit-transition: left 0.5s ease 0.4s;
+  -o-transition: left 0.5s ease 0.4s;
+  transition: left 0.5s ease 0.4s;
 }
 
 .page__text._active p:nth-child(2),
 ._active.about__body p:nth-child(2) {
-  -webkit-transition: all 0.5s ease 0.6s;
-  -o-transition: all 0.5s ease 0.6s;
-  transition: all 0.5s ease 0.6s;
+  -webkit-transition: left 0.5s ease 0.6s;
+  -o-transition: left 0.5s ease 0.6s;
+  transition: left 0.5s ease 0.6s;
 }
 
 .page__text._active p:nth-child(3),
 ._active.about__body p:nth-child(3) {
-  -webkit-transition: all 0.5s ease 0.8s;
-  -o-transition: all 0.5s ease 0.8s;
-  transition: all 0.5s ease 0.8s;
+  -webkit-transition: left 0.5s ease 0.8s;
+  -o-transition: left 0.5s ease 0.8s;
+  transition: left 0.5s ease 0.8s;
 }
 
 .page__text._active p:nth-child(4),
 ._active.about__body p:nth-child(4) {
-  -webkit-transition: all 0.5s ease 1s;
-  -o-transition: all 0.5s ease 1s;
-  transition: all 0.5s ease 1s;
+  -webkit-transition: left 0.5s ease 1s;
+  -o-transition: left 0.5s ease 1s;
+  transition: left 0.5s ease 1s;
 }
 
 .page__button {
@@ -2819,11 +2872,14 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item.lg-complete .lg-object 
     width: 100%;
   }
 
-  .contacts__image ._icon-instagram:hover::before {
+  .contacts .instagram_gallery a:hover img {
+    -webkit-transform: scale(1.2);
+        -ms-transform: scale(1.2);
+            transform: scale(1.2);
+  }
+
+  .contacts .instagram_gallery a:hover::before {
     opacity: 1;
-    -webkit-transition: all 0.5s ease 0s;
-    -o-transition: all 0.5s ease 0s;
-    transition: all 0.5s ease 0s;
   }
 
   .social-contacts__link:hover {
@@ -2831,9 +2887,11 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item.lg-complete .lg-object 
     -webkit-transform: scale(1.15);
         -ms-transform: scale(1.15);
             transform: scale(1.15);
-    -webkit-transition: all 0.5s ease 0s;
-    -o-transition: all 0.5s ease 0s;
-    transition: all 0.5s ease 0s;
+    -webkit-transition: -webkit-transform 0.5s ease 0s;
+    transition: -webkit-transform 0.5s ease 0s;
+    -o-transition: transform 0.5s ease 0s;
+    transition: transform 0.5s ease 0s;
+    transition: transform 0.5s ease 0s, -webkit-transform 0.5s ease 0s;
   }
 
   .achievements__item:hover {
@@ -2846,9 +2904,6 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item.lg-complete .lg-object 
     -webkit-transform: scale(1.1);
         -ms-transform: scale(1.1);
             transform: scale(1.1);
-    -webkit-transition: all 0.5s ease 0s;
-    -o-transition: all 0.5s ease 0s;
-    transition: all 0.5s ease 0s;
   }
 
   .item-services__title:hover::before {
@@ -2861,13 +2916,15 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item.lg-complete .lg-object 
     -webkit-transform: translate(-45px, 65px) scale(1.3);
         -ms-transform: translate(-45px, 65px) scale(1.3);
             transform: translate(-45px, 65px) scale(1.3);
-    -webkit-transition: all 1.2s ease 0s;
-    -o-transition: all 1.2s ease 0s;
-    transition: all 1.2s ease 0s;
+    -webkit-transition: -webkit-transform 1.2s ease 0s;
+    transition: -webkit-transform 1.2s ease 0s;
+    -o-transition: transform 1.2s ease 0s;
+    transition: transform 1.2s ease 0s;
+    transition: transform 1.2s ease 0s, -webkit-transform 1.2s ease 0s;
   }
 
   .page__button._active:hover {
-    background-color: #000;
+    background-color: rgba(0, 0, 0, 0.75);
     color: #fff;
     -webkit-transition: background-color 0.6s ease 0s, color 0.6s ease 0s;
     -o-transition: background-color 0.6s ease 0s, color 0.6s ease 0s;
@@ -2963,6 +3020,10 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item.lg-complete .lg-object 
 
   .item-services__points {
     margin-bottom: calc(15px + 5 * ((100vw - 320px) / 870));
+  }
+
+  .reviews {
+    margin-bottom: calc(40px + 30 * ((100vw - 320px) / 870));
   }
 
   .page__title {
@@ -3195,14 +3256,11 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item.lg-complete .lg-object 
 }
 
 @media (max-width: 600px) {
-  .contacts__image {
+  .contacts .instagram_gallery a {
     -webkit-box-flex: 1;
         -ms-flex: 1 1 50%;
             flex: 1 1 50%;
-  }
-
-  .image-contacts__item {
-    padding: 0px 0px 87% 0px;
+    padding: 0px 0px 43.5% 0px;
   }
 
   .achievements__column {
@@ -3226,15 +3284,30 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item.lg-complete .lg-object 
 }
 
 @media (max-width: 479.98px) {
-  .contacts__image {
+  .contacts .instagram_gallery a {
     -webkit-box-flex: 1;
         -ms-flex: 1 1 100%;
             flex: 1 1 100%;
+    padding: 0px 0px 87% 0px;
     margin: 0px 0px 15px 0px;
   }
 
-  .contacts__image:last-child {
+  .contacts .instagram_gallery a:last-child {
     margin: 0px 0px 0px 0px;
+  }
+
+  .contacts .instagram_gallery a:nth-child(1) {
+    -webkit-box-flex: 1;
+        -ms-flex: 1 1 100%;
+            flex: 1 1 100%;
+    padding: 0px 0px 87% 0px;
+  }
+
+  .contacts .instagram_gallery a:nth-child(2) {
+    -webkit-box-flex: 1;
+        -ms-flex: 1 1 100%;
+            flex: 1 1 100%;
+    padding: 0px 0px 87% 0px;
   }
 }
 

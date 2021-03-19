@@ -194,49 +194,6 @@ let reviewsSlider = new Swiper('.reviews__slider', {
 //========================================================================================================================================================
 
 
-//========================================================================================================================================================
-
-// document.querySelectorAll('.menu__link').forEach(function (el) {
-// 	if (window.location.pathname.indexOf(el.getAttribute('href')) > -1) {
-// 		el.classList.add('_active');
-// 	}
-// });
-
-//========================================================================================================================================================
-
-//====Start выделить текущий пункт меню====================================================================================================================================================
-
-// Добавь тегу body атрибут data-id- page="индификатор_страницы"
-// Добавь элементу навигации data-id-nav="индификатор_страницы"
-
-// 	< body data-id-page="photo" >
-// 		<ul class="menu__list-desktop">
-// 			<li>
-// 				<a href="index.html" class="item__link--desktop">
-// 					<img src="img/logo-pink-white-desktop.svg" alt="main-logo">
-//           </a>
-//         </li>
-// 				<li>
-// 					<a href="index.html" class="item__link desktop-link" data-id-nav="index">Главная</a>
-// 				</li>
-// 				<li>
-// 					<a href="photo.html" class="item__link desktop-link" data-id-nav="photo">Фотографии</a>
-// 				</li>
-// 				<li>
-// 					<a href="form.html" class="item__link desktop-link" data-id-nav="form">Конкурс</a>
-// 				</li>
-//       </ul>
-// </body>
-
-
-let pageId = document.querySelector("[data-id-page]").getAttribute("data-id-page"),
-	navItem = document.querySelector(`[data-id-nav=${pageId}]`);
-
-if (pageId == navItem.getAttribute("data-id-nav")) {
-	navItem.classList.add("_active");
-}
-//=== End выделить текущий пункт меню=====================================================================================================================================================
-
 var ua = window.navigator.userAgent;
 var msie = ua.indexOf("MSIE ");
 var isMobile = { Android: function () { return navigator.userAgent.match(/Android/i); }, BlackBerry: function () { return navigator.userAgent.match(/BlackBerry/i); }, iOS: function () { return navigator.userAgent.match(/iPhone|iPad|iPod/i); }, Opera: function () { return navigator.userAgent.match(/Opera Mini/i); }, Windows: function () { return navigator.userAgent.match(/IEMobile/i); }, any: function () { return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows()); } };
@@ -1645,3 +1602,55 @@ function scroll_animate(event) {
 	//If native scroll
 	//disableScroll();
 }
+
+//========================================================================================================================================================
+
+//====Start выделить текущий пункт меню====================================================================================================================================================
+
+// Добавь тегу body атрибут data-id- page="индификатор_страницы"
+// Добавь элементу навигации data-id-nav="индификатор_страницы"
+
+// 	< body data-id-page="photo" >
+// 		<ul class="menu__list-desktop">
+// 			<li>
+// 				<a href="index.html" class="item__link--desktop">
+// 					<img src="img/logo-pink-white-desktop.svg" alt="main-logo">
+//           </a>
+//         </li>
+// 				<li>
+// 					<a href="index.html" class="item__link desktop-link" data-id-nav="index">Главная</a>
+// 				</li>
+// 				<li>
+// 					<a href="photo.html" class="item__link desktop-link" data-id-nav="photo">Фотографии</a>
+// 				</li>
+// 				<li>
+// 					<a href="form.html" class="item__link desktop-link" data-id-nav="form">Конкурс</a>
+// 				</li>
+//       </ul>
+// </body>
+
+
+let pageId = document.querySelector("[data-id-page]").getAttribute("data-id-page"),
+	navItem = document.querySelector(`[data-id-nav=${pageId}]`);
+
+if (pageId == navItem.getAttribute("data-id-nav")) {
+	navItem.classList.add("_active");
+}
+//=== End выделить текущий пункт меню=====================================================================================================================================================
+//=Start Вывод ленты Инстаграм===================================================================================================================================================
+
+(function () {
+	new InstagramFeed({
+		'username': 'annarogalskay',
+		'container': document.querySelector(".contacts__insta"),
+		'display_profile': false,
+		'display_biography': false,
+		'display_gallery': true,
+		'display_captions': false,
+		'callback': null,
+		'styling': false,
+		'items': 10,
+	});
+})();
+
+//==End Вывод ленты Инстаграм======================================================================================================================================================
