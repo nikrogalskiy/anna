@@ -1603,33 +1603,7 @@ function scroll_animate(event) {
 	//disableScroll();
 }
 
-//========================================================================================================================================================
-
-//====Start выделить текущий пункт меню====================================================================================================================================================
-
-// Добавь тегу body атрибут data-id- page="индификатор_страницы"
-// Добавь элементу навигации data-id-nav="индификатор_страницы"
-
-// 	< body data-id-page="photo" >
-// 		<ul class="menu__list-desktop">
-// 			<li>
-// 				<a href="index.html" class="item__link--desktop">
-// 					<img src="img/logo-pink-white-desktop.svg" alt="main-logo">
-//           </a>
-//         </li>
-// 				<li>
-// 					<a href="index.html" class="item__link desktop-link" data-id-nav="index">Главная</a>
-// 				</li>
-// 				<li>
-// 					<a href="photo.html" class="item__link desktop-link" data-id-nav="photo">Фотографии</a>
-// 				</li>
-// 				<li>
-// 					<a href="form.html" class="item__link desktop-link" data-id-nav="form">Конкурс</a>
-// 				</li>
-//       </ul>
-// </body>
-
-
+//=Start выделить текущий пункт меню==================================================
 let pageId = document.querySelector("[data-id-page]").getAttribute("data-id-page"),
 	navItem = document.querySelector(`[data-id-nav=${pageId}]`);
 
@@ -1639,18 +1613,6 @@ if (pageId == navItem.getAttribute("data-id-nav")) {
 //=== End выделить текущий пункт меню=====================================================================================================================================================
 //=Start Вывод ленты Инстаграм===================================================================================================================================================
 
-(function () {
-	new InstagramFeed({
-		'username': 'annarogalskay',
-		'container': document.querySelector(".contacts__insta"),
-		'display_profile': false,
-		'display_biography': false,
-		'display_gallery': true,
-		'display_captions': false,
-		'callback': null,
-		'styling': false,
-		'items': 10,
-	});
-})();
+
 
 //==End Вывод ленты Инстаграм======================================================================================================================================================
