@@ -2615,6 +2615,10 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item.lg-complete .lg-object 
   transition: all 0.35s ease 0s;
 }
 
+.item-services__title span.item-services__title_price {
+  color: red;
+}
+
 .item-services__title span {
   font-weight: 500;
   color: #837a6a;
